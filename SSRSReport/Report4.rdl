@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <rd:DataSourceID>3548e089-afd2-46e9-aa1b-781d7a5377fd</rd:DataSourceID>
+      <DataSourceReference>DataSource1</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <rd:ReportID>f7347897-7b53-4485-bfe3-f14811ecaa17</rd:ReportID>
+  <Width>5in</Width>
+  <Body>
+    <Height>0.43in</Height>
+    <ColumnSpacing>0.5in</ColumnSpacing>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Style>
+          <FontFamily>Segoe UI Light</FontFamily>
+          <FontSize>24pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Value>Report4</Value>
+        <CanGrow>true</CanGrow>
+        <Height>0.43in</Height>
+      </Textbox>
+      <Table Name="table1">
+        <Top>0.43in</Top>
+        <Style />
+        <Header>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+          <TableRows>
+            <TableRow>
+              <TableCells />
+              <Height>0in</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells />
+              <Height>0in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns />
+        <DataSetName>DataSet1</DataSetName>
+      </Table>
+    </ReportItems>
+  </Body>
+  <Language>en-US</Language>
+  <LeftMargin>1in</LeftMargin>
+  <RightMargin>1in</RightMargin>
+  <TopMargin>1in</TopMargin>
+  <BottomMargin>1in</BottomMargin>
+  <PageWidth>8.5in</PageWidth>
+  <PageHeight>11in</PageHeight>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Fields />
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>Text</CommandType>
+        <CommandText>USE [PAS_UAT1]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_GetCapabilitiesReport]    Script Date: 3/31/2021 12:12:16 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Procedure [dbo].[usp_GetCapabilitiesReport] 
+@partnumber varchar(40)=null,
+@Fromdate datetime,
+@Todate datetime,
+@Level1 varchar(max) = null,
+@Level2 varchar(max) = null,
+@Level3 varchar(max) = null,
+@Level4 varchar(max) = null
+AS 
+BEGIN
+
+IF OBJECT_ID(N'tempdb..#ManagmetnStrcture') IS NOT NULL
+BEGIN
+DROP TABLE #ManagmetnStrcture 
+END
+CREATE TABLE #ManagmetnStrcture 
+(
+ ID BIGINT NOT NULL IDENTITY, 
+ ManagementStructureId BIGINT NULL, 
+)
+
+
+
+IF (ISNULL(@Level4,'') != '' AND ISNULL(@Level3,'') != '' AND ISNULL(@Level2,'') != '' AND ISNULL(@Level1,'') != '')
+BEGIN
+INSERT INTO #ManagmetnStrcture (ManagementStructureId)
+SELECT item from dbo.[SplitString](@Level4,',')
+END
+ELSE IF( ISNULL(@Level3,'') != '' AND ISNULL(@Level2,'') != '' AND ISNULL(@Level1,'') != '')
+BEGIN
+INSERT INTO #ManagmetnStrcture (ManagementStructureId)
+SELECT item from dbo.[SplitString](@Level3,',')
+END
+ELSE IF (ISNULL(@Level2,'') != '' AND ISNULL(@Level1,'') != '')
+BEGIN
+INSERT INTO #ManagmetnStrcture (ManagementStructureId)
+SELECT item from dbo.[SplitString](@Level2,',')
+END
+ELSE IF ISNULL(@Level1,'') != ''
+BEGIN
+INSERT INTO #ManagmetnStrcture (ManagementStructureId)
+SELECT item from dbo.[SplitString](@Level1,',')
+END
+select distinct
+(IM.partnumber)             'PN',
+(IM.partdescription)			  'PN Description',
+AT.Description		  'Aircraft',
+AM.modelname			  'Model',
+ADN.Dashnumber			  'Dash',
+ATA.ATAchaptercode			  'ATA Cht',
+ATAS.ATASubChaptercode			  'ATA Sub-Chpt',
+CT.description			  'Capability Type',
+Employee.FirstName		  'Verified',
+convert(varchar,IMC.VerifiedDate,101)			  'Date Verified',
+convert(varchar,IMC.AddedDate,101)			  'Date Added',
+ CASE WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL and level1.Code+ '-' +level1.Name IS NOT NULL THEN level1.Code+ '-' +level1.Name 
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL THEN level2.Code+ '-' +level2.Name 
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL THEN level3.Code+ '-' +level3.Name
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL THEN level4.Code+ '-' +level4.Name ELSE '' END AS LEVEL1,
+		   CASE WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.name IS NOT NULL and level1.Code+ '-' +level1.Name IS NOT NULL THEN level2.Code+ '-' +level2.Name
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL THEN level3.Code+ '-' +level3.Name 
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL THEN level4.Code+ '-' +level4.Name ELSE '' END AS LEVEL2,
+		   CASE WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL and level1.Code+ '-' +level1.Name IS NOT NULL THEN level3.Code+ '-' +level3.Name
+           WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL THEN level4.Code+ '-' +level4.Name ELSE '' END AS LEVEL3,
+		   CASE WHEN level4.Code+ '-' +level4.Name IS NOT NULL and level3.Code+ '-' +level3.Name IS NOT NULL and level2.Code+ '-' +level2.Name IS NOT NULL and level1.Code+ '-' +level1.Name IS NOT NULL THEN level4.Code+ '-' +level4.Name ELSE '' END AS LEVEL4 
+            
+from ItemMasterCapes IMC WITH(NOLOCK)
+LEFT JOIN  Itemmaster IM ON IMC.itemmasterid=IM.itemmasterid
+INNER JOIN Capability CAP ON IM.ItemMasterId=CAP.ItemMasterId
+LEFT JOIN  Aircrafttype AT ON CAP.aircrafttypeid=AT.aircrafttypeid
+LEFT JOIN  Aircraftmodel AM ON CAP.aircraftmodelid=AM.aircraftmodelid
+LEFT JOIN  aircraftdashnumber ADN ON CAP.AircraftDashNumberId=ADN.dashnumberid
+LEFT JOIN  ATAchapter ATA ON CAP.atachapterid=ATA.atachapterid
+LEFT JOIN  ATAsubchapter ATAS ON ATA.atachapterid=ATAS.ATAChapterId
+LEFT JOIN capabilitytype CT ON IMC.capabilitytypeid=CT.capabilitytypeid
+LEFT JOIN Employee ON IMC.VerifiedById=Employee.EmployeeId
+INNER JOIN #ManagmetnStrcture MS on MS.ManagementStructureId = IMC.ManagementStructureId	
+join  ManagementStructure level4 on IMC.ManagementStructureId = level4.ManagementStructureId
+LEFT join  ManagementStructure level3 on level4.ParentId = level3.ManagementStructureId 
+LEFT join  ManagementStructure level2 on level3.ParentId = level2.ManagementStructureId 
+LEFT join  ManagementStructure level1 on level2.ParentId = level1.ManagementStructureId
+
+
+where  IM.partnumber in (@partnumber) or @partnumber=' ' and  CAP.DateVerified between (@FromDate) and (@ToDate)
+END</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <Timeout>0</Timeout>
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
