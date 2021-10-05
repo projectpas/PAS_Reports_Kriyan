@@ -23,9 +23,6 @@
           <QueryParameter Name="@ToDate">
             <Value>=Parameters!ToDate.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@customername">
-            <Value>=Parameters!customername.Value</Value>
-          </QueryParameter>
         </QueryParameters>
         <CommandText>SELECT DISTINCT 
                          Customer.Name AS 'CustomerName', Customer.CustomerCode, 
@@ -34,7 +31,7 @@
 FROM            SalesOrder AS SO LEFT OUTER JOIN
                          Customer ON SO.CustomerId = Customer.CustomerId
 
-WHERE        (SO.SalesOrderNumber IN (@SONum)) AND (SO.OpenDate BETWEEN @FromDate AND @ToDate) and (SO.MasterCompanyId IN (@customername)) </CommandText>
+WHERE        (SO.SalesOrderNumber IN (@SONum)) AND (SO.OpenDate BETWEEN @FromDate AND @ToDate) and (SO.MasterCompanyId IN (4)) </CommandText>
       </Query>
       <Fields>
         <Field Name="CustomerName">
