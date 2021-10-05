@@ -141,8 +141,13 @@
     <DataSet Name="CO">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>select ManagementStructureId as LEVEL1, (Code  + '-' +[Name])  as CO from dbo.ManagementStructure 
-Where ParentId is null AND (MasterCompanyId = 4)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>4</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_GetManagementStructureLevel1</CommandText>
       </Query>
       <Fields>
         <Field Name="LEVEL1">
@@ -210,17 +215,20 @@ from SalesOrderquote SOQ</CommandText>
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@level1">
+          <QueryParameter Name="@Level1">
             <Value>=Parameters!level1.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>=Parameters!mastercompanyid.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>select ManagementStructureId as LEVEL2, (Code  + '-' +  [Name])  as BU from dbo.ManagementStructure 
-Where ParentId in (@level1) AND (MasterCompanyId = 4)</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_GetManagementStructureLevel2</CommandText>
       </Query>
       <Fields>
         <Field Name="LEVEL2">
           <DataField>LEVEL2</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="BU">
           <DataField>BU</DataField>
@@ -232,17 +240,20 @@ Where ParentId in (@level1) AND (MasterCompanyId = 4)</CommandText>
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@level2">
+          <QueryParameter Name="@Level2">
             <Value>=Parameters!level2.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>=Parameters!mastercompanyid.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>select ManagementStructureId as LEVEL3, (Code  + '-' +  [Name])  as DIV from dbo.ManagementStructure 
-Where ParentId in (@level2) AND (MasterCompanyId = 4)</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_GetManagementStructureLevel3</CommandText>
       </Query>
       <Fields>
         <Field Name="LEVEL3">
           <DataField>LEVEL3</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="DIV">
           <DataField>DIV</DataField>
@@ -254,17 +265,20 @@ Where ParentId in (@level2) AND (MasterCompanyId = 4)</CommandText>
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@level3">
+          <QueryParameter Name="@Level3">
             <Value>=Parameters!level3.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>=Parameters!mastercompanyid.Value</Value>
+          </QueryParameter>
         </QueryParameters>
-        <CommandText>select ManagementStructureId as LEVEL4,(Code  + '-' + [Name])  as DEPT  from dbo.ManagementStructure 
-Where ParentId in (@level3) AND (MasterCompanyId = 4)</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_GetManagementStructureLevel4</CommandText>
       </Query>
       <Fields>
         <Field Name="LEVEL4">
           <DataField>LEVEL4</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="DEPT">
           <DataField>DEPT</DataField>
