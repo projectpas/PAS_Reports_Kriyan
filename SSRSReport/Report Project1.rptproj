@@ -62,9 +62,9 @@
     <Report Include="Labor Tracking.rdl" />
     <Report Include="Open RO Details.rdl" />
     <Report Include="PO to WO-SO.rdl" />
-    <Report Include="Publication Tracking.rdl" />
-    <Report Include="Purchase Order .rdl" />
+    <Report Include="Publication Tracking .rdl" />
     <Report Include="Purchase Order Dashboard.rdl" />
+    <Report Include="Purchase Order.rdl" />
     <Report Include="Receive Customer Work.rdl" />
     <Report Include="Receiving Log.rdl" />
     <Report Include="Repair Order by WO and SO.rdl" />

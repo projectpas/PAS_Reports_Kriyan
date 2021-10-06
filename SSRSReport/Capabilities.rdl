@@ -155,9 +155,9 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandText>
-SELECT 'True' AS txt, 1 as Val
+SELECT 'Yes' AS txt, 1 as Val
 union all
-SELECT 'False' AS txt, 2 as Val
+SELECT 'No' AS txt, 2 as Val
 union all
 SELECT 'All' AS txt, 3 as Val</CommandText>
       </Query>
