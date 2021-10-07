@@ -18,7 +18,7 @@
             <Value>=Parameters!Todate.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@mastercompanyid">
-            <Value>=Parameters!mastercompanyid.Value</Value>
+            <Value>4</Value>
           </QueryParameter>
           <QueryParameter Name="@calibrationrequired">
             <Value>=Parameters!calibrationrequired.Value</Value>
@@ -248,9 +248,9 @@
     <DataSet Name="CalReqd">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT 'True' AS txt, 1 as Val
+        <CommandText>SELECT 'Yes' AS txt, 1 as Val
 union all
-SELECT 'False' AS txt, 2 as Val
+SELECT 'No' AS txt, 2 as Val
 union all
 SELECT 'All' AS txt, 3 as Val</CommandText>
       </Query>
@@ -268,9 +268,9 @@ SELECT 'All' AS txt, 3 as Val</CommandText>
     <DataSet Name="CerReqd">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT 'True' AS txt, 1 as Val
+        <CommandText>SELECT 'Yes' AS txt, 1 as Val
 union all
-SELECT 'False' AS txt, 2 as Val
+SELECT 'No' AS txt, 2 as Val
 union all
 SELECT 'All' AS txt, 3 as Val</CommandText>
       </Query>
@@ -288,9 +288,9 @@ SELECT 'All' AS txt, 3 as Val</CommandText>
     <DataSet Name="InsReqd">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT 'True' AS txt, 1 as Val
+        <CommandText>SELECT 'Yes' AS txt, 1 as Val
 union all
-SELECT 'False' AS txt, 2 as Val
+SELECT 'No' AS txt, 2 as Val
 union all
 SELECT 'All' AS txt, 3 as Val</CommandText>
       </Query>
@@ -308,9 +308,9 @@ SELECT 'All' AS txt, 3 as Val</CommandText>
     <DataSet Name="VerReqd">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT 'True' AS txt, 1 as Val
+        <CommandText>SELECT 'Yes' AS txt, 1 as Val
 union all
-SELECT 'False' AS txt, 2 as Val
+SELECT 'No' AS txt, 2 as Val
 union all
 SELECT 'All' AS txt, 3 as Val</CommandText>
       </Query>

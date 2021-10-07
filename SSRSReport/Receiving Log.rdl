@@ -4350,23 +4350,6 @@ LEFT JOIN Customer C ON Wo.WorkOrderId=C.CustomerId  WHERE (STL.MasterCompanyId 
       </DefaultValue>
       <Prompt>To Stock Received Date*</Prompt>
     </ReportParameter>
-    <ReportParameter Name="mastercomanyid">
-      <DataType>Integer</DataType>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>DataSet2</DataSetName>
-          <ValueField>MasterCompanyId</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Prompt>Company Name</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>DataSet2</DataSetName>
-          <ValueField>MasterCompanyId</ValueField>
-          <LabelField>CompanyName</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
     <ReportParameter Name="level1">
       <DataType>String</DataType>
       <DefaultValue>
@@ -4384,6 +4367,23 @@ LEFT JOIN Customer C ON Wo.WorkOrderId=C.CustomerId  WHERE (STL.MasterCompanyId 
         </DataSetReference>
       </ValidValues>
       <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="mastercomanyid">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet2</DataSetName>
+          <ValueField>MasterCompanyId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Company Name</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSet2</DataSetName>
+          <ValueField>MasterCompanyId</ValueField>
+          <LabelField>CompanyName</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
     <ReportParameter Name="partnumber">
       <DataType>String</DataType>
@@ -4464,33 +4464,33 @@ LEFT JOIN Customer C ON Wo.WorkOrderId=C.CustomerId  WHERE (STL.MasterCompanyId 
           <ParameterName>ToDate</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>mastercomanyid</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
           <ParameterName>level1</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
+          <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>partnumber</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
+          <ColumnIndex>2</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>level2</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>4</RowIndex>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
           <ParameterName>level3</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>4</RowIndex>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>3</RowIndex>
           <ParameterName>level4</ParameterName>
         </CellDefinition>
       </CellDefinitions>
