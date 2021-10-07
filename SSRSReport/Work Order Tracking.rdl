@@ -21,7 +21,7 @@
             <Value>=Parameters!level4.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@Level3">
-            <Value>=Parameters!level3.Value</Value>
+            <Value>5</Value>
           </QueryParameter>
           <QueryParameter Name="@Level2">
             <Value>=Parameters!level2.Value</Value>
@@ -31,6 +31,10 @@
           </QueryParameter>
           <QueryParameter Name="@Todate">
             <Value>=Parameters!ToDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>=Parameters!mastercompanyid.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -233,31 +237,6 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="Dept">
-      <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@Level3">
-            <Value>=Parameters!level3.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@mastercompanyid">
-            <Value>=Parameters!mastercompanyid.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>usp_GetManagementStructureLevel4</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="LEVEL4">
-          <DataField>LEVEL4</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="DEPT">
-          <DataField>DEPT</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
     <DataSet Name="DataSet2">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
@@ -272,6 +251,33 @@
         <Field Name="companyname">
           <DataField>companyname</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet3">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Level3">
+            <Value>=Parameters!level3.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+          <QueryParameter Name="@mastercompanyid">
+            <Value>=Parameters!mastercompanyid.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>usp_GetManagementStructureLevel4</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="LEVEL4">
+          <DataField>LEVEL4</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="DEPT">
+          <DataField>DEPT</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
         </Field>
       </Fields>
     </DataSet>
@@ -2690,7 +2696,7 @@ DATEDIFF(DATEINTERVAL.Day,Fields!Cust_Req_Date.Value,Fields!Current_Date.Value)&
           <ValueField>Mastercompanyid</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>mastercompanyid</Prompt>
+      <Prompt>Company Name</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>DataSet2</DataSetName>
@@ -2741,7 +2747,7 @@ DATEDIFF(DATEINTERVAL.Day,Fields!Cust_Req_Date.Value,Fields!Current_Date.Value)&
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
-          <DataSetName>Dept</DataSetName>
+          <DataSetName>DataSet3</DataSetName>
           <ValueField>LEVEL4</ValueField>
         </DataSetReference>
       </DefaultValue>
@@ -2749,7 +2755,7 @@ DATEDIFF(DATEINTERVAL.Day,Fields!Cust_Req_Date.Value,Fields!Current_Date.Value)&
       <Prompt>Dept</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>Dept</DataSetName>
+          <DataSetName>DataSet3</DataSetName>
           <ValueField>LEVEL4</ValueField>
           <LabelField>DEPT</LabelField>
         </DataSetReference>
@@ -2778,24 +2784,24 @@ DATEDIFF(DATEINTERVAL.Day,Fields!Cust_Req_Date.Value,Fields!Current_Date.Value)&
           <ParameterName>level1</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>3</RowIndex>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>mastercompanyid</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
-          <RowIndex>2</RowIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>level2</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>level3</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>level4</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>level3</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

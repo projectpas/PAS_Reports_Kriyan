@@ -29,6 +29,14 @@
           <QueryParameter Name="@Level4">
             <Value>=Parameters!level4.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@Fromdate">
+            <Value>=Parameters!fromdate.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+          <QueryParameter Name="@Todate">
+            <Value>=Parameters!todate.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>usp_GetStockReport</CommandText>
@@ -3720,14 +3728,18 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="getdate">
+    <ReportParameter Name="fromdate">
+      <DataType>DateTime</DataType>
+      <Prompt>From date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="todate">
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
           <Value>=Today</Value>
         </Values>
       </DefaultValue>
-      <Prompt>As of Date</Prompt>
+      <Prompt>To Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="mastercompanyid">
       <DataType>Integer</DataType>
@@ -3830,7 +3842,7 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>getdate</ParameterName>
+          <ParameterName>fromdate</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
@@ -3853,9 +3865,14 @@
           <ParameterName>level4</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
+          <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>mastercompanyid</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>todate</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
