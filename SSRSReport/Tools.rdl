@@ -70,7 +70,7 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Calibration_Required_">
-          <DataField>Calibration Required?</DataField>
+          <DataField>Calibration Required</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="Last_Calibrated_Date">
@@ -86,7 +86,7 @@
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Certification_Required_">
-          <DataField>Certification Required?</DataField>
+          <DataField>Certification Required</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="Last_Certified_By">
@@ -248,11 +248,13 @@
     <DataSet Name="CalReqd">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>SELECT 'Yes' AS txt, 1 as Val
+        <CommandText>
+SELECT 'All' AS txt, 3 as Val
+union all
+SELECT 'Yes' AS txt, 1 as Val
 union all
 SELECT 'No' AS txt, 2 as Val
-union all
-SELECT 'All' AS txt, 3 as Val</CommandText>
+</CommandText>
       </Query>
       <Fields>
         <Field Name="txt">
@@ -2013,6 +2015,12 @@ SELECT 'All' AS txt, 3 as Val</CommandText>
     </ReportParameter>
     <ReportParameter Name="calibrationrequired">
       <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>CalReqd</DataSetName>
+          <ValueField>Val</ValueField>
+        </DataSetReference>
+      </DefaultValue>
       <Prompt>Cal Req'd</Prompt>
       <ValidValues>
         <DataSetReference>

@@ -2599,7 +2599,7 @@ from SalesOrderquote SOQ</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=sum(Fields!QuotedRevenue)-sum(Fields!QuotedDirectCost)</Value>
+                                  <Value>=Sum(Fields!Quoted_Margin.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2634,7 +2634,7 @@ from SalesOrderquote SOQ</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=(sum(Fields!QuotedRevenue)-sum(Fields!QuotedDirectCost))/sum(Fields!QuotedRevenue)</Value>
+                                  <Value>=Sum(Fields!Margin___.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2743,7 +2743,7 @@ from SalesOrderquote SOQ</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=sum(Fields!SO_Rev_.Value)-sum(Fields!QuotedRevenue)</Value>
+                                  <Value>=Sum(Fields!Rev_Amt.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -2778,7 +2778,7 @@ from SalesOrderquote SOQ</CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=(sum(Fields!SO_Rev_.Value)-sum(Fields!QuotedRevenue))/sum(Fields!QuotedRevenue)</Value>
+                                  <Value>=Sum(Fields!Rev__.Value/100)*100</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -3585,6 +3585,23 @@ from SalesOrderquote SOQ</CommandText>
       <AllowBlank>true</AllowBlank>
       <Prompt>Customer(Optional)</Prompt>
     </ReportParameter>
+    <ReportParameter Name="mastercompanyid">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet2</DataSetName>
+          <ValueField>Mastercompanyid</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Company Name</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSet2</DataSetName>
+          <ValueField>Mastercompanyid</ValueField>
+          <LabelField>companyname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
     <ReportParameter Name="level2">
       <DataType>String</DataType>
       <DefaultValue>
@@ -3642,23 +3659,6 @@ from SalesOrderquote SOQ</CommandText>
       </ValidValues>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="mastercompanyid">
-      <DataType>Integer</DataType>
-      <DefaultValue>
-        <DataSetReference>
-          <DataSetName>DataSet2</DataSetName>
-          <ValueField>Mastercompanyid</ValueField>
-        </DataSetReference>
-      </DefaultValue>
-      <Prompt>Company Name</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>DataSet2</DataSetName>
-          <ValueField>Mastercompanyid</ValueField>
-          <LabelField>companyname</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -3701,8 +3701,8 @@ from SalesOrderquote SOQ</CommandText>
           <ParameterName>customername</ParameterName>
         </CellDefinition>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>4</RowIndex>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>mastercompanyid</ParameterName>
         </CellDefinition>
       </CellDefinitions>
