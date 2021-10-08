@@ -1775,7 +1775,7 @@ from salesorder SO WHERE (SO.MasterCompanyId = 4)
   <ReportParameters>
     <ReportParameter Name="Fromdate">
       <DataType>DateTime</DataType>
-      <Prompt>From SO Approved Date</Prompt>
+      <Prompt>From SO Open Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="Todate">
       <DataType>DateTime</DataType>
@@ -1784,7 +1784,7 @@ from salesorder SO WHERE (SO.MasterCompanyId = 4)
           <Value>=Today</Value>
         </Values>
       </DefaultValue>
-      <Prompt>To SO Approved Date</Prompt>
+      <Prompt>To SO Open Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="Level1">
       <DataType>String</DataType>
