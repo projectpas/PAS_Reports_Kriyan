@@ -24,7 +24,7 @@
             <Value>=Parameters!Todate.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@mastercompanyid">
-            <Value>=Parameters!mastercompanyid.Value</Value>
+            <Value>4</Value>
           </QueryParameter>
           <QueryParameter Name="@Level1">
             <Value>=Parameters!level1.Value</Value>
