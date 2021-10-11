@@ -1728,7 +1728,7 @@ from SalesOrderquote SOQ</CommandText>
                                   <Value>=Fields!Quoted_Margin.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00;- #,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1870,7 +1870,7 @@ from SalesOrderquote SOQ</CommandText>
                                   <Value>=Fields!Rev_Amt.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

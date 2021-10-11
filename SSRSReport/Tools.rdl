@@ -113,22 +113,6 @@
           <DataField>Location</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="LEVEL1">
-          <DataField>LEVEL1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="LEVEL2">
-          <DataField>LEVEL2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="LEVEL3">
-          <DataField>LEVEL3</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="LEVEL4">
-          <DataField>LEVEL4</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="CO">
@@ -2022,6 +2006,7 @@ SELECT 'All' AS txt, 3 as Val</CommandText>
         </DataSetReference>
       </DefaultValue>
       <Prompt>Cal Req'd</Prompt>
+      <Hidden>true</Hidden>
       <ValidValues>
         <DataSetReference>
           <DataSetName>CalReqd</DataSetName>
