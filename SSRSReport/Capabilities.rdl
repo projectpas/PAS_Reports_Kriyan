@@ -35,10 +35,6 @@
           <QueryParameter Name="@Level4">
             <Value>=Parameters!Level4.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@asofdate">
-            <Value>=Parameters!asofdate.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
-          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>usp_GetCapabilitiesReport</CommandText>
@@ -1836,14 +1832,10 @@ WHERE        (MasterCompanyId = 4)</CommandText>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="asofdate">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=Today()</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>As of Date</Prompt>
+    <ReportParameter Name="partnumber">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>PN(Optional)</Prompt>
     </ReportParameter>
     <ReportParameter Name="mastercompanyid">
       <DataType>Integer</DataType>
@@ -1881,10 +1873,15 @@ WHERE        (MasterCompanyId = 4)</CommandText>
       </ValidValues>
       <MultiValue>true</MultiValue>
     </ReportParameter>
-    <ReportParameter Name="partnumber">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>PN(Optional)</Prompt>
+    <ReportParameter Name="asofdate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=Today()</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>As of Date</Prompt>
+      <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="isverified">
       <DataType>String</DataType>
@@ -1962,7 +1959,7 @@ WHERE        (MasterCompanyId = 4)</CommandText>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>asofdate</ParameterName>
         </CellDefinition>
         <CellDefinition>
@@ -1977,7 +1974,7 @@ WHERE        (MasterCompanyId = 4)</CommandText>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
+          <RowIndex>0</RowIndex>
           <ParameterName>partnumber</ParameterName>
         </CellDefinition>
         <CellDefinition>
