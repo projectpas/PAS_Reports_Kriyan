@@ -35,6 +35,10 @@
           <QueryParameter Name="@Level4">
             <Value>=Parameters!Level4.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@asofdate">
+            <Value>=Parameters!asofdate.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>usp_GetCapabilitiesReport</CommandText>
@@ -1832,7 +1836,7 @@ WHERE        (MasterCompanyId = 4)</CommandText>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="ReportParameter1">
+    <ReportParameter Name="asofdate">
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
@@ -1959,7 +1963,7 @@ WHERE        (MasterCompanyId = 4)</CommandText>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>ReportParameter1</ParameterName>
+          <ParameterName>asofdate</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>

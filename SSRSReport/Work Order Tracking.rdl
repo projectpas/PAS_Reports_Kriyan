@@ -1454,13 +1454,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>WO_Num</rd:DefaultName>
-                          <ActionInfo>
-                            <Actions>
-                              <Action>
-                                <Hyperlink>="http://uat1.poweraerosuites.com/workordersmodule/workorderspages/app-work-order-list"</Hyperlink>
-                              </Action>
-                            </Actions>
-                          </ActionInfo>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1475,6 +1468,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
