@@ -1326,7 +1326,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Revenue.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1362,7 +1362,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Margin.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1398,7 +1398,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Margin__.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1434,7 +1434,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!SO_Revenue.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1470,7 +1470,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!SO_Margin.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1506,7 +1506,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!SO_Margin__.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1542,7 +1542,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Total_Revenue.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1578,7 +1578,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Total_Margin.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1614,7 +1614,7 @@ LEFT JOIN Salesorderquote as SOQ ON Employee .employeeid=SOQ.CustomerSeviceRepid
                                   <Value>=Fields!Total_Margin__.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
