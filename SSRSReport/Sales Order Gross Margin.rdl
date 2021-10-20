@@ -1855,7 +1855,7 @@ LEFT JOIN Salesorderquote as SO ON Employee .employeeid=SO.CustomerSeviceRepId</
                                   <Value>=Fields!Revenue.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1890,7 +1890,7 @@ LEFT JOIN Salesorderquote as SO ON Employee .employeeid=SO.CustomerSeviceRepId</
                                   <Value>=Fields!Direct_Cost.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1960,7 +1960,7 @@ LEFT JOIN Salesorderquote as SO ON Employee .employeeid=SO.CustomerSeviceRepId</
                                   <Value>=Fields!Gross_Margin.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2016,6 +2016,7 @@ LEFT JOIN Salesorderquote as SO ON Employee .employeeid=SO.CustomerSeviceRepId</
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
